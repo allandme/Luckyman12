@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kado Ulang Tahun 🎉</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #ffe0f7, #ffafbd);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+  }
+
+  .gift-box {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(145deg, #ff4081, #e91e63);
+    position: relative;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  }
+  .gift-box:hover {
+    transform: scale(1.05);
+  }
+
+  /* Tutup kado */
+  .gift-lid {
+    position: absolute;
+    width: 220px;
+    height: 60px;
+    background: linear-gradient(145deg, #ff79a9, #f06292);
+    top: -60px;
+    left: -10px;
+    border-radius: 20px 20px 0 0;
+    transition: transform 1s ease, top 1s ease;
+    transform-origin: bottom center;
+    z-index: 10;
+  }
+
+  .ribbon {
+    position: absolute;
+    width: 30px;
+    height: 200px;
+    background: gold;
+    left: 85px;
+    top: 0;
+    border-radius: 10px;
+  }
+  .ribbon-horizontal {
+    position: absolute;
+    height: 30px;
+    width: 200px;
+    background: gold;
+    top: 85px;
+    left: 0;
+    border-radius: 10px;
+  }
+
+  /* Konten Ucapan */
+  .content {
+    display: none;
+    text-align: center;
+    max-width: 400px;
+    animation: fadeIn 1s ease forwards;
+  }
+  .content video {
+    max-width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  }
+  .content p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(50px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes glow {
+    from {text-shadow: 0 0 5px #ffccff, 0 0 10px #ff6699;}
+    to {text-shadow: 0 0 20px #ff0066, 0 0 30px #ff3399;}
+  }
+</style>
+</head>
+<body>
+
+<div class="gift-box" id="gift">
+  <div class="gift-lid" id="lid"></div>
+  <div class="ribbon"></div>
+  <div class="ribbon-horizontal"></div>
+</div>
+
+<div class="content" id="content">
+  <video controls autoplay>
+    <source src="Totototo_[Video]___Le_immagini_più_divertenti,_Cose_divertenti,_Cartoni_divertenti.mp4
+" type="video/mp4">
+    Browser kamu tidak mendukung video.
+  </video>
+  <p>Selamat ulang tahun 🎉 Semoga panjang umur, sehat selalu, dilancarkan segala urusan, dan selalu dikelilingi orang-orang baik~ ✨🔥</p>
+</div>
+
+<script>
+const gift = document.getElementById("gift");
+const lid = document.getElementById("lid");
+const content = document.getElementById("content");
+
+// Klik gift → tutup kado terangkat ke atas
+gift.addEventListener("click", () => {
+  lid.style.transform = "translateY(-120px) rotateX(180deg)";
+  lid.style.top = "-180px";
+  setTimeout(() => {
+    gift.style.display = "none";
+    content.style.display = "block";
+  }, 1200);
+});
+</script>
+
+</body>
+</html>
